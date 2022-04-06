@@ -11,10 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 public class MainServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter printWriter = resp.getWriter();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter printWriter = response.getWriter();
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        String message = "Earth";
+        if (name != null) {
+            message = name;
+            if (surname != null) {
+                message += " " + surname;
+            }
+        } else if (surname != null) {
+            message = surname;
+        }
         printWriter.println("<html>");
-        printWriter.println("<h1> Hello Earth! </h1>");
+        printWriter.println("<h1> Hello " + message + "! </h1>");
         printWriter.println("</html>");
     }
 

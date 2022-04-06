@@ -20,5 +20,9 @@
              }
          %>
          <%= date %>
+         <%
+            String name = request.getParameter("name");
+         %>
+         <h1> HELLO, <%= name %> !!!</h1>
     </body>
 </html>
