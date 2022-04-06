@@ -6,14 +6,11 @@
     <body>
         <h1>Simple Java Web App Demo</h1>
         <p>To invoke the java servlet click <a href="/main">here</a></p>
-        <h1>List</h1>
-                <p>
-                  <ul>
-                    <li>One</li>
-                    <li>Two</li>
-                    <li>Three</li>
-                  </ul>
-                </p>
-                <%= java.time.LocalDateTime.now() %>
+        <%@ page import="java.util.Date, com.arinahitech.Info" %>
+        <%
+            Info info = new Info();
+        %>
+        <%= new Date() %>
+        <%= info.getInfo() %>
     </body>
 </html>
