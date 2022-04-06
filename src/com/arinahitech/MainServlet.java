@@ -2,6 +2,7 @@ package com.arinahitech;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,10 @@ public class MainServlet extends HttpServlet {
         printWriter.println("<html>");
         printWriter.println("<h1> Hello " + message + "! </h1>");
         printWriter.println("</html>");
+        //response.sendRedirect("https://www.youtube.ru");
+        //response.sendRedirect("/list.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/list.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
