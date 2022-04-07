@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class MainServlet extends HttpServlet {
@@ -14,6 +15,15 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter printWriter = response.getWriter();
+        HttpSession session = request.getSession();
+        Integer count = (Integer) session.getAttribute("count");
+        if (count == null) {
+            count = 1;
+        } else {
+            count++;
+        }
+        session.setAttribute("count", count);
+
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String message = "Earth";
@@ -27,11 +37,12 @@ public class MainServlet extends HttpServlet {
         }
         printWriter.println("<html>");
         printWriter.println("<h1> Hello " + message + "! </h1>");
+        printWriter.println("<h2> You were here " + count + " times. </h2>");
         printWriter.println("</html>");
         //response.sendRedirect("https://www.youtube.ru");
         //response.sendRedirect("/list.jsp");
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/list.jsp");
-        requestDispatcher.forward(request, response);
+        //RequestDispatcher requestDispatcher = request.getRequestDispatcher("/list.jsp");
+        //requestDispatcher.forward(request, response);
     }
 
     @Override

@@ -11,9 +11,30 @@
   </servlet>
 
   <servlet>
+    <servlet-name>ShopServlet</servlet-name>
+    <servlet-class>com.arinahitech.ShopServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>UsersServlet</servlet-name>
+    <servlet-class>com.arinahitech.UsersServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>list</servlet-name>
     <jsp-file>/list.jsp</jsp-file>
   </servlet>
+
+  <servlet>
+    <servlet-name>SetCookiesServlet</servlet-name>
+    <servlet-class>com.arinahitech.SetCookiesServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GetCookiesServlet</servlet-name>
+    <servlet-class>com.arinahitech.GetCookiesServlet</servlet-class>
+  </servlet>
+
   
   <servlet-mapping>
     <servlet-name>MainServlet</servlet-name>
@@ -21,8 +42,28 @@
   </servlet-mapping>
 
   <servlet-mapping>
+    <servlet-name>ShopServlet</servlet-name>
+    <url-pattern>/shop</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
     <servlet-name>list</servlet-name>
     <url-pattern>/myList</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SetCookiesServlet</servlet-name>
+    <url-pattern>/setcppkies</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GetCookiesServlet</servlet-name>
+    <url-pattern>/getcppkies</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>UsersServlet</servlet-name>
+    <url-pattern>/users</url-pattern>
   </servlet-mapping>
 
 </web-app>
